@@ -1,0 +1,125 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <h1>Gestion Enseignant</h1>
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Enseignants</li>
+             <li class="breadcrumb-item active">Ajouter Enseignant</li>
+          </ol>
+       </nav>
+    </div>
+  
+       
+             <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title">Ajouter Enseignant</h5>
+
+            <form [formGroup]="myForm" (ngSubmit)="Ajouter()">
+               <div formGroupName="Form1">
+                      <div class="row mb-3">
+                         <label for="inputText" class="col-sm-2 col-form-label">Nom</label>
+                         <div class="col-sm-10"> <input type="text" class="form-control" formControlName="nomE" [(ngModel)]="enseignant.nomE" [ngClass]="{'nonValidd':nomE?.invalid,'validdd':nomE?.valid}">
+                           <div *ngIf="nomE?.invalid && nomE?.touched else jjj" class = "py-2">
+                              <div *ngIf="nomE?.errors?.['required']" class="alert alert-danger alert-dismissible fade show"
+                              role="alert"><i class="bi bi-exclamation-octagon me-1"></i>
+                                  nom obligatoire
+                              </div>
+                              <div *ngIf="nomE?.errors?.         ['minlength']"
+                                  class="alert alert-danger" role="alert">
+                                  nom minimum 5 caracteres
+                              </div>
+                          </div>
+                  
+                          <ng-template #jjj >
+                           <div *ngIf="nomE?.touched" class = "py-2">
+                           <div class="alert alert-info alert-dismissible fade show" role="alert"> <i class="bi bi-check-circle me-1"></i>nom valid</div> </div>
+                          </ng-template>
+                         
+                        </div>
+                       </div>
+
+                      <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Prenom</label>
+                        <div class="col-sm-10"> <input type="text" class="form-control" formControlName="prenomE" [(ngModel)]="enseignant.prenomE" [ngStyle]="{'border':(prenomE?.invalid) ? '2px solid red' : '2px solid rgb(0, 255, 13)' }">
+                           <div *ngIf="prenomE?.invalid && prenomE?.touched" >
+                              <div *ngIf="prenomE?.errors?.['required']" class="alert alert-danger alert-dismissible fade show"
+                                  role="alert"><i class="bi bi-exclamation-octagon me-1"></i>
+                                  Prenom obligatoire
+                              </div>
+                              <div *ngIf="prenomE?.errors?.         ['minlength']"
+                                  class="alert alert-danger" role="alert">
+                                  Prenom minimum 4 caracteres
+                              </div>
+                          </div>
+                        </div>
+                     </div>
+
+
+
+                      <div class="row mb-3">
+                         <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                         <div class="col-sm-10"> <input type="email" class="form-control" formControlName="email" [(ngModel)]="enseignant.email" [ngStyle]="{'border':(email?.invalid) ? '2px solid red' : '2px solid rgb(0, 255, 13)' }">
+                           <div *ngIf="email?.invalid && email?.touched">
+                              <div *ngIf="email?.errors?.['required']" class="alert alert-danger alert-dismissible fade show"
+                              role="alert"><i class="bi bi-exclamation-octagon me-1"></i>
+                                  email obligatoire
+                              </div>
+                              <div *ngIf="email?.errors?.['pattern']" class="alert alert-danger">
+                                 email invalide
+                              </div>                                                      
+                          </div>
+                        </div>
+                      </div>
+               </div>
+                      <div class="row mb-3" [hidden]="myForm.controls['Form1'].invalid">
+                        <label for="inputDate" class="col-sm-2 col-form-label">Date Prise Fonction</label>
+                        <div class="col-sm-10"> <input type="date" class="form-control" formControlName="date" [(ngModel)]="enseignant.date_prise_de_fonction">
+                           <div *ngIf="date?.invalid && date?.touched">
+                              <div *ngIf="date?.errors?.['required']" class="alert alert-danger alert-dismissible fade show"
+                              role="alert"><i class="bi bi-exclamation-octagon me-1"></i>
+                                  Date obligatoire
+                              </div>
+
+                          </div>
+                        </div>
+                     </div>
+
+                     <div class="row mb-3" [hidden]="myForm.controls['Form1'].invalid">
+                        <label class="col-sm-2 col-form-label">Grade</label>
+                        <div class="col-sm-10">
+                           <select class="form-select" aria-label="Default select example" formControlName="grade" [(ngModel)]="enseignant.grade">                          
+                              <option value="1">Assistant</option>
+                              <option value="2">Maître_assistant</option>
+                              <option value="3">Maître_de_conferences</option>
+                              <option value="4">Professeur</option>
+                           </select>
+                           <div *ngIf="grade?.invalid && grade?.touched">
+                              <div *ngIf="grade?.errors?.['required']" class="alert alert-danger alert-dismissible fade show"
+                              role="alert"><i class="bi bi-exclamation-octagon me-1"></i>
+                                  garde obligatoire
+                              </div>
+
+                          </div>
+                        </div>
+                     </div>                     
+                      <div class="row mb-3" [hidden]="myForm.controls['Form1'].invalid">
+                         <label for="inputNumber" class="col-sm-2 col-form-label">Image</label>
+                         <div class="col-sm-10"> <input class="form-control" type="file" id="formFile" formControlName="image" (change)="readUrl($event)" [(ngModel)]="enseignant.image">
+                           
+                           <img [src]="url" width="50px" height="50px">
+                          
+                        </div>
+                      </div>                                                                                               
+                   
+                      <div class="row mb-3" >
+                         <label class="col-sm-2 col-form-label"></label>
+                         <div class="col-sm-10" style="margin-left: 250px;"> <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Enregistrer</button></div>
+                      </div>
+            </form>
+
+
+
+                </div>
+             </div>
+ </main>

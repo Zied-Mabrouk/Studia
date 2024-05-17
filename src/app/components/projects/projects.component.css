@@ -1,0 +1,39 @@
+td {
+    text-transform: capitalize;
+}
+
+.outils * {
+    margin: 0;
+    padding: 0;
+}
+
+.outils >div{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-block: 8px;
+}
+.outils{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.add-btn{
+    margin-right:64px !important;
+    padding: 5px !important;
+    display: flex;
+    border-radius: 50%;
+    background-color: #f0ad4e;
+}
+.add-btn img {
+    width: 20px;
+    aspect-ratio: 1/1;
+}
+
+.outils input,
+.outils select {
+    border-radius: 5px;
+    border: 1px solid grey;
+    outline: none;
+    padding: 4px 8px;
+}

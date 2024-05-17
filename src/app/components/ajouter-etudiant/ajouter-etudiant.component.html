@@ -1,0 +1,164 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1 *ngIf="!etudiantID">Ajouter-Etudiant</h1>
+    <h1 *ngIf="etudiantID">Modifier-Etudiant</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item">Etudiant</li>
+        <li *ngIf="!etudiantID" class="breadcrumb-item active">
+          Ajouter-Etudiant
+        </li>
+        <li *ngIf="etudiantID" class="breadcrumb-item active">
+          Modifier-Etudiant
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 *ngIf="!etudiantID" class="card-title">Ajouter Etudiant</h5>
+      <h5 *ngIf="etudiantID" class="card-title">Modifier Etudiant</h5>
+      <form #myForm="ngForm" (ngSubmit)="OnSubmit(myForm)">
+        <div class="row mb-3">
+          <label for="inputText" class="col-sm-2 col-form-label">Nom</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              [ngModel]="etudiant.nomE"
+              #nomE="ngModel"
+              name="nomE"
+              pattern="[a-zA-Z]{2,16}[a-zA-Z ]{0,16}"
+              required
+            />
+          </div>
+          <div
+            *ngIf="nomE.errors && nomE.errors['required'] && nomE.touched"
+            class="alert alert-danger"
+            role="alert"
+          >
+            Nom du etudiant est obligatoire
+          </div>
+          <div
+            *ngIf="nomE.errors && nomE.errors['pattern'] && nomE.touched"
+            class="alert alert-danger"
+            role="alert"
+          >
+            Le nom du etudiant doit contenir que des lettres, au moins 2 et au
+            max 32
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputEmail" class="col-sm-2 col-form-label">Prenom</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              [ngModel]="etudiant.prenomE"
+              #prenomE="ngModel"
+              name="prenomE"
+              pattern="[a-zA-Z]{2,16}[a-zA-Z ]{0,16}"
+              required
+            />
+          </div>
+
+          <div
+            *ngIf="
+              prenomE.errors && prenomE.errors['required'] && prenomE.touched
+            "
+            class="alert alert-danger"
+            role="alert"
+          >
+            Prenom Etudiant du etudiant est obligatoire
+          </div>
+          <div
+            *ngIf="
+              prenomE.errors && prenomE.errors['pattern'] && prenomE.touched
+            "
+            class="alert alert-danger"
+            role="alert"
+          >
+            Le prenom du etudiant doit contenir que des lettres, au moins 2 et
+            au max 32
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label">Option</label>
+          <div class="col-sm-10">
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              [ngModel]="etudiant.opt"
+              #opt="ngModel"
+              name="opt"
+              required
+            >
+              <option value="GAMIX" selected>GAMIX</option>
+              <option value="SE">SE</option>
+              <option value="NIDS">NIDS</option>
+              <option value="SIM">SIM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label">Departement </label>
+          <div class="col-sm-10">
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              [ngModel]="etudiant.departement"
+              #departement="ngModel"
+              name="departement"
+            >
+              <option
+                *ngFor="let item of listDepartments"
+                value="{{ item.idDepar }}"
+              >
+                {{ item.nomDepar }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+            margin-top: 2rem;
+          "
+        >
+          <button
+            *ngIf="!etudiantID"
+            [disabled]="!myForm.valid"
+            type="submit"
+            class="btn btn-primary"
+          >
+            Ajouter
+          </button>
+          <button
+            *ngIf="etudiantID"
+            [disabled]="!myForm.valid"
+            type="submit"
+            class="btn btn-primary"
+          >
+            Modifier
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            [routerLink]="['/ListEtudiant']"
+            routerLinkActive="router-link-active"
+          >
+            Annuler
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

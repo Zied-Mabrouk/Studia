@@ -1,0 +1,90 @@
+.btn {
+  margin-right: 0.75rem;
+}
+
+.x-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  height: 20px;
+  width: 20px;
+  background-image: url("../../../assets/img/red-x.svg");
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  opacity: 0;
+  transform: scale(0.35s);
+}
+
+.x-button:hover {
+  scale: 1.1;
+}
+
+.img-student {
+  border-right: #012970 solid 2px;
+  margin-right: 1rem;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card:hover .x-button {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.25s;
+}
+
+.error-emoji {
+  color: #dadce0 !important;
+  font: 200px/1.25 sans-serif;
+  margin-bottom: 24px;
+}
+
+.error-text {
+  margin-bottom: 24px;
+  font: 400 24px/32px sans-serif;
+  letter-spacing: normal;
+}
+
+.button-error {
+  border-color: #1a73e8;
+  background-color: transparent;
+  color: #1a73e8;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.button-error:hover {
+  background-color: #1a73e81a;
+  transition: all 0.2s;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.bi-pencil-square,
+.bi-cloud-plus,
+.bi-trash {
+  transition: all 0.2s;
+}
+
+.bi-pencil-square:hover {
+  color: #eb9317 !important;
+}
+
+.bi-cloud-plus:hover {
+  color: #012970 !important;
+}
+
+.bi-trash:hover {
+  color: #d71912 !important;
+}

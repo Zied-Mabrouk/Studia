@@ -1,0 +1,95 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Data Tables</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a routerlink="/">Home</a>
+                </li>
+                <li class="breadcrumb-item">Tables</li>
+                <li class="breadcrumb-item active">Data</li>
+            </ol>
+        </nav>
+    </div>
+    <section class="section">
+        <div class="outils">
+            <div>
+                <input type="text" [ngModel]="search" (ngModelChange)="onSearchChange($event)"/>
+                <select [ngModel]="status" (ngModelChange)="onStatusChange($event)">
+                    <option value="">Tous les status</option>
+                    <option value="en cours">En cours</option>
+                    <option value="terminé">Terminé</option>
+                </select>
+                <select [ngModel]="level" (ngModelChange)="onLevelChange($event)">
+                    <option value="">Tous les niveaux</option>
+                    <option value="JUNIOR">Junior</option>
+                    <option value="SENIOR">Senior</option>
+                </select>
+            </div>
+            <a routerLink="/add-project" class="add-btn">
+                <img src="./assets/img/add.png" alt=""/>
+            </a>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Table with stripped rows</h5>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Team</th>
+                                    <th scope="col">Deadline</th>
+                                    <th scope="col">Outils</th>-
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let project of projects | paginate : { itemsPerPage: 3, currentPage: p };
+                                ;let index=index">
+                                    <td>{{ project.nameProject }}</td>
+                                    <td>{{ project.descriptionProject }}</td>
+                                    <td>{{ project.statusProject }}</td>
+                                    <td *ngIf="!(!project.team || clicked===project.idProject) ; then thenBlock; else elseBlock"></td>
+                                    <ng-template #thenBlock>
+                                        <td (click)="clickedProject(project.idProject)">{{ project.team.nomEquipe }}</td>
+                                    </ng-template>
+                                    <ng-template #elseBlock>
+                                        <td>
+                                            <select (change)="onSelect($event,project.idProject)">
+                                                <option value="">Aucune équipe</option>
+                                                <option *ngFor="let team of teams" value="{{ team.idEquipe }}">
+                                                    {{ team.nomEquipe }}
+                                                </option>
+                                            </select>
+                                        </td>
+                                    </ng-template>
+                                    <td>{{ project.deadLine }}</td>
+                                    <td>
+                                        <a [routerLink]="['/update-project', project.idProject]" routerlinkactive="router-link-active" class="bi bi-pencil-square" style="
+                                                                      font-size: 25px;
+                                                                      color: #f0ad4e;
+                                                                      cursor: pointer;
+                                                                      margin-right: 1rem;
+                                                                    "></a>
+                                        <a (click)="deleteProject(project.idProject)" class="bi bi-trash" style="font-size: 25px; color: #d9534f; cursor: pointer"></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="d-flex justify-content-center">
+                            <pagination-controls
+                              previousLabel="Prev"
+                              nextLabel="Next"
+                              (pageChange)="p=$event"
+                            >
+                            </pagination-controls>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

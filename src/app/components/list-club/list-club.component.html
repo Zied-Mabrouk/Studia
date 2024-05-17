@@ -1,0 +1,64 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <h1>Data Tables</h1>
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Tables</li>
+             <li class="breadcrumb-item active">Data</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="section">
+       <div class="row">
+          <div class="col-lg-12">
+             <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Table with stripped rows</h5>
+                    <table class="table table-striped">
+                       <thead>
+                          <tr>
+                            
+                             <th scope="col">IdClub</th>
+                             <th scope="col">NomClub</th>
+                             <th scope="col">Description</th>
+                             <th scope="col">Date_creation</th>
+                             <th scope="col">Email</th>
+                             <th scope="col">Contacts</th>
+                             <th scope="col">Modifier</th>
+                             <th scope="col">Supprimer</th>
+                            
+                             
+                          </tr>
+                       </thead>
+                       <tbody>
+                          <tr *ngFor="let i of clubs | filter: clubService.searchText">
+                            <td>{{i.idClub}}</td>
+                            <td>{{i.nomClub}}</td>
+                            <td>{{i.description}}</td>
+                            <td>{{i.date_creation}}</td>
+                            <td>{{i.email}}</td>
+                            <td>{{i.contacts}}</td>
+                            <td>
+                              
+                              <a (click)="updateClub(i.idClub)"  class="bi bi-pencil-square" style="font-size:25px;color:rgb(15, 192, 15); cursor:pointer;"></a>                               
+                           </td>  
+                           <td>
+                              
+                              <a (click)="deleteClub(i.idClub)" 
+                                class="ri-delete-bin-fill" style="font-size:25px;color:rgb(252, 10, 10); cursor:pointer;"></a>    
+                                              
+                           </td>
+                           
+                            
+                          </tr>
+                        
+                       </tbody>
+                    </table>
+                 </div>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main>
+

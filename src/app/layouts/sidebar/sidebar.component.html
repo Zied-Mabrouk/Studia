@@ -1,0 +1,65 @@
+<aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+       <li class="nav-item"> <a class="nav-link " routerLink="/dashboard"> <i class="bi bi-grid"></i> <span>Dashboard</span> </a></li>
+
+       <li class="nav-item">
+         <a id class="nav-link collapsed" data-bs-target="#forms-Universite" data-bs-toggle="collapse" href="#"> <i class="bi bi-journal-text"></i><span>Gestion Universite</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+         <ul id="forms-Universite" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+           <li> <a routerLink="/AddUni"> <i class="bi bi-circle"></i><span>Ajouter Universite </span> </a></li>
+           <li> <a routerLink="/ListUni"> <i class="bi bi-circle"></i><span>Afficher Universtie </span> </a></li>
+         </ul>
+       </li>
+
+       <li class="nav-item">
+         <a class="nav-link collapsed" data-bs-target="#forms-Departement" data-bs-toggle="collapse" href="#"> <i class="bi bi-layout-text-window-reverse"></i><span>Gestion Departement</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+         <ul id="forms-Departement" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li> <a routerLink="/AjouterDepartement"> <i class="bi bi-circle"></i><span>Ajouter Departement</span> </a></li>
+            <li> <a routerLink="/ListDepartment"> <i class="bi bi-circle"></i><span>Afficher Departement</span> </a></li>
+         </ul>
+      </li>
+
+       <li class="nav-item">
+         <a class="nav-link collapsed" data-bs-target="#forms-Etudiant" data-bs-toggle="collapse" href="#"> <i class="bi bi-journal-text"></i><span>Gestion Etudiant</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+         <ul id="forms-Etudiant" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li> <a routerLink="/AjouterEtudiant"> <i class="bi bi-circle"></i><span>Ajouter Etudiant </span> </a></li>      
+            <li> <a routerLink="/ListEtudiant"> <i class="bi bi-circle"></i><span>Afficher Etudiants </span> </a></li>      
+         </ul>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link collapsed" data-bs-target="#forms-Enseignant" data-bs-toggle="collapse" href="#"> <i class="bi bi-person"></i><span>Gestion Enseignant</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+         <ul id="forms-Enseignant" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li> <a routerLink="/AjouterEnseignant"> <i class="bi bi-circle"></i><span>Ajouter Enseignant </span> </a></li>      
+            <li> <a routerLink="/ListEnseignant"> <i class="bi bi-circle"></i><span>Afficher Enseignants </span> </a></li>          
+         </ul>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-gem"></i><span>Gestion des Projets</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+
+          <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+             <li> <a routerLink="/projects"> <i class="bi bi-circle"></i><span>Projets</span> </a></li>
+          </ul>
+       </li>
+      <li class="nav-item">
+         <a class="nav-link collapsed" data-bs-target="#forms-Module" data-bs-toggle="collapse" href="#"> <i class="bi bi-menu-button-wide"></i><span>Gestion Module</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+         <ul id="forms-Module" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li> <a routerLink="/AjouterModule"> <i class="bi bi-circle"></i><span>Ajouter Module </span> </a></li>      
+            <li> <a routerLink="/ListModule"> <i class="bi bi-circle"></i><span>Afficher Modules </span> </a></li>      
+         </ul>
+      </li>
+
+      <li class="nav-item">
+         <a class="nav-link collapsed" data-bs-target="#forms-Club" data-bs-toggle="collapse" href="#"> <i class="bi bi-person"></i><span>Gestion Club</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+         <ul id="forms-Club" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li> <a routerLink="/AjouterClub"> <i class="bi bi-circle"></i><span>Ajouter Club </span> </a></li>      
+            <li> <a routerLink="/ListClub"> <i class="bi bi-circle"></i><span>Afficher Club </span> </a></li>          
+         </ul>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link collapsed" data-bs-target="#forms-Equipe" data-bs-toggle="collapse" href="#"> <i class="bi bi-layout-text-window-reverse"></i><span>Equipe</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+         <ul id="forms-Equipe" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li> <a routerLink="/equipe"> <i class="bi bi-circle"></i><span>Equipe</span> </a></li>
+         </ul>
+      </li>
+      
+    </ul>
+ </aside>

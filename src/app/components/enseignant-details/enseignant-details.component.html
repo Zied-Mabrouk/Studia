@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="img">
+      <img src="assets/img/{{enseignant.image}}">
+    </div>
+    <div class="infos">  &NonBreakingSpace;
+      <div class="name">
+        <h2>{{enseignant.nomE +" "+enseignant.prenomE}}</h2>
+        <h4>{{enseignant.email}}</h4>
+      </div>
+      <p class="text">
+        Date de prise de fonstion: {{enseignant.date_prise_de_fonction}}
+      </p>
+      <ul class="stats">
+        <li>
+          <h3>Grade</h3>
+          <h4>{{enseignant.grade}}</h4>
+        </li>
+        &NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;   
+        &NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;   
+        <li>
+          <h3>Departement</h3>
+          <h4>{{enseignant.departement.nomDepar}}</h4>
+        </li>
+        &NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace; 
+        &NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace; 
+        <li>
+          <h3>Module</h3>
+          <h4>{{enseignant.module.nomModule}}</h4>
+        </li>
+      </ul>
+      
+    </div>
+  </div>

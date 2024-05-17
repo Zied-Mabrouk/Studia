@@ -1,0 +1,91 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <h1>Liste des Enseignant</h1>
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Enseignants</li>
+             <li class="breadcrumb-item active">Liste Enseignants </li>
+          </ol>
+       </nav>
+      </div>
+    <section class="section">
+       <div class="row">
+          <div class="col-lg-12">
+             <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Liste Des Enseignants</h5>
+                    <table class="table table-striped">
+                       <thead>
+                          <tr>
+                             <th scope="col">#</th>
+                             <th scope="col">Nom</th>
+                             <th scope="col">Prenom</th>
+                             <th scope="col">Email</th>
+                             <th scope="col">Date Prise de Fonction</th>
+                             <th scope="col">Grade</th>
+                             <th scope="col">Modifier</th>
+                             <th scope="col">Supprimer</th>
+                             <th scope="col">Details</th>
+                             <th scope="col">Module</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                          <tr *ngFor="let enseignant of enseignants | filter: enseignantService.searchText
+                           | paginate
+                          : { itemsPerPage: 5,currentPage: p };let i = index;">
+                          
+                             <th scope="row"><img src="assets/img/{{enseignant.image}}" alt="" style="width: 40; height: 40px;" ></th>
+                             <td>{{enseignant.nomE}}</td>
+                             <td>{{enseignant.prenomE}}</td>                           
+                             <td>{{enseignant.email}}</td>
+                             <td>
+                              &NonBreakingSpace;
+                              &NonBreakingSpace;
+                              &NonBreakingSpace;
+                              &NonBreakingSpace;
+                              {{enseignant. date_prise_de_fonction}}</td>
+                             <td>{{enseignant.grade}}</td>                             
+                             <td>
+                                &NonBreakingSpace;
+                                &NonBreakingSpace;
+                                &NonBreakingSpace;
+                                <a (click)="updateEnseignant(enseignant.idEnseignant)"  class="bi bi-pencil-square" style="font-size:25px;color: #f0ad4e; cursor:pointer;"></a>                               
+                             </td>  
+                             <td>
+                                &NonBreakingSpace;
+                                &NonBreakingSpace;
+                                &NonBreakingSpace;
+                                <a (click)="delete(enseignant.idEnseignant)" 
+                                  class="ri-delete-bin-fill" style="font-size:25px;color:rgb(252, 10, 10); cursor:pointer;"></a>    
+                                                
+                             </td>       
+                              <td>
+                                    <a [routerLink]="['enseignantDetails',enseignant.idEnseignant]"
+                                    class="bi bi-search" style="font-size:25px;color:rgb(105, 35, 225); cursor:pointer;"></a>
+                              </td>  
+                              <td>
+                                 &NonBreakingSpace;
+                                 &NonBreakingSpace;
+                                 &NonBreakingSpace;
+                                 <a (click)="assignEnseignantModule(enseignant.idEnseignant)"  class="bi bi-plus" style="font-size:35px;color:rgb(15, 192, 15); cursor:pointer;"></a>                               
+                              </td>        
+                          </tr>                        
+                       </tbody>
+                    </table>
+                    <div class="d-flex justify-content-center">
+                     <pagination-controls
+                       previousLabel="Prev"
+                       nextLabel="Next"
+                       (pageChange)="p=$event"
+                     >
+                     </pagination-controls>
+                   </div>
+                 </div>
+             </div>
+          </div>
+       </div>
+    </section>
+           <router-outlet></router-outlet>
+ </main>
+

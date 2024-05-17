@@ -1,0 +1,48 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <h1>Gestion Enseignant</h1>
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Enseignants</li>
+             <li class="breadcrumb-item active">Assigner Enseignant à Module</li>
+          </ol>
+       </nav>
+    </div>
+  
+       
+             <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title">Assigner Enseignant à Module</h5>
+
+            <form ngForm #f="ngForm" (ngSubmit)="assignEnseignantToModule()">
+                         
+                    
+                     
+                     
+                     <div class="row mb-3" >
+                        <label class="col-sm-2 col-form-label">Module</label>
+                        <div class="col-sm-10">
+                            <!-- <p></p>
+                           <select class="form-select" aria-label="Default select example" ng-model="selectedItem">                             
+                                <option *ngFor="let module of modules" [(ngModel)]="module.idModule" value="{{module}}"  name="idModule" id="idModule" #idModule="ngModel">{{module.idModule}}</option>
+                                                                            
+                           </select> -->
+                       
+                           <select class="form-select" name="hhh" aria-label="Default select example" [(ngModel)]="moduleSelected"> 
+                            <option *ngFor="let x of modules" [value]="x.idModule">{{x.nomModule}}</option>
+                        </select>
+                        </div>
+                     </div>    
+
+
+                                       
+                     <div class="row mb-3" >
+                         <label class="col-sm-2 col-form-label"></label>
+                         <div class="col-sm-10" style="margin-left: 250px;"> <button type="submit" class="btn btn-primary" >Enregistrer</button></div>
+                      </div>
+            </form>
+
+                </div>
+             </div>
+ </main>

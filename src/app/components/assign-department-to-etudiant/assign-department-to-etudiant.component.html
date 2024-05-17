@@ -1,0 +1,40 @@
+<form #myForm="ngForm" (ngSubmit)="OnSubmit(myForm)">
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+    "
+  >
+    <H3 style="margin-top: 2rem; text-align: center"
+      >Attribuer
+      <b style="text-transform: uppercase">
+        {{ data.etudiant.nomE }} {{ data.etudiant.prenomE }}</b
+      ></H3
+    >
+    <div style="display: flex; gap: 4rem">
+      <label class="col-sm-2 col-form-label">Departement</label>
+      <div class="col-sm-6">
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          [ngModel]="idDepar"
+          #idDepar="ngModel"
+          name="idDepar"
+          required
+          pattern="[a-zA-Z0-9]*"
+        >
+          <option *ngFor="let item of list" value="{{ item.idDepar }}">
+            {{ item.nomDepar }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <button [disabled]="!myForm.valid" class="btn btn-primary" type="submit">
+      Attribuer
+    </button>
+  </div>
+</form>

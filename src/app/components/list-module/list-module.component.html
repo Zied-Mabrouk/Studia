@@ -1,0 +1,117 @@
+
+<main id="main" class="main">
+    <div class="pagetitle">
+       <h1>Liste des Modules</h1>
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Modules</li>
+             <li class="breadcrumb-item active">Liste Modules </li>
+          </ol>
+       </nav>
+    </div>
+    
+
+
+    <section class="section">
+       <div class="row">
+          <div class="col-lg-12">
+             <div class="card">
+                     
+   <div class="row">&NonBreakingSpace;</div>
+ 
+                <div class="card-body">
+                 
+                   
+   
+                   
+                  <div class="search-bar">
+                     <form class="search-form d-flex align-items-center" method="POST" action="#">                        
+                           <input id="search-focus" type="search" placeholder="Search..." id="form1" class="form-control" [(ngModel)]="search" name="jjjj" >  
+               
+                         
+                    </form>
+                  </div>
+
+
+                    <h5 class="card-title">Liste Des Modules</h5>
+                    <table class="table table-striped">
+                       <thead>
+                          <tr>
+                             <th scope="col">#</th>
+                             <th scope="col">Module</th>
+                             <th scope="col">Charge</th>
+                             <th scope="col">Etcs</th>                            
+                             <th scope="col">Modifier</th>
+                             <th scope="col">Supprimer</th>
+                             <th scope="col">Enseignants</th>
+                             <th scope="col">Ajouter Responsable</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                        <tr *ngFor="let module of modules   | paginate
+                        : { itemsPerPage: 4,currentPage: p }; let i = index;">
+                           <ng-template [ngIf]="module.nomModule.toLowerCase().startsWith(search.toLowerCase())">	
+                           <th scope="row">1</th>
+                           <td>
+                              &NonBreakingSpace;
+                              &NonBreakingSpace;
+                              {{module.nomModule}}
+                           </td>                            
+                           <td>
+                              &NonBreakingSpace;
+                              &NonBreakingSpace;
+                              {{module. chargeHoraire}}
+                           </td>
+                           <td>
+                              &NonBreakingSpace;
+                              &NonBreakingSpace;
+                              {{module.nbEtcs}}
+                           </td>                             
+                           <td>
+                              &NonBreakingSpace;
+                              &NonBreakingSpace;
+                              &NonBreakingSpace;
+                              <a   
+                              [routerLink]="['module-update', module.idModule]"
+                              routerLinkActive="router-link-active"  class="bi bi-pencil-square" style="font-size:25px;color:#f0ad4e;"></a>                               
+                           </td>  
+                           <td>
+                              &NonBreakingSpace;
+                              &NonBreakingSpace;
+                              &NonBreakingSpace;
+                              <a (click)="delete(module.idModule)"   class="ri-delete-bin-fill" style="font-size:25px;color:rgb(252, 10, 10);cursor: pointer;"></a>                               
+                           </td>
+                           <td>
+                              &NonBreakingSpace;
+                              &NonBreakingSpace;
+                              &NonBreakingSpace;
+                              <a  [routerLink]="['list-Enseignant', module.idModule]"
+                              routerLinkActive="router-link-active" class="bi bi-people-fill" style="font-size:25px;color:rgb(58, 10, 252);cursor: pointer;"></a>                               
+                           </td>  
+                           <td>
+                              &NonBreakingSpace;
+                              &NonBreakingSpace;
+                              &NonBreakingSpace;
+                              <a (click)="assignResponsableModule(module.idModule)"  class="bi bi-plus" style="font-size:35px;color:rgb(15, 192, 15); cursor:pointer;"></a>                               
+                           </td>         
+                           </ng-template>                  
+                        </tr>
+                       </tbody>
+                    </table>
+                    <div class="d-flex justify-content-center">
+                     <pagination-controls
+                       previousLabel="Prev"
+                       nextLabel="Next"
+                       (pageChange)="p=$event"
+                     >
+                     </pagination-controls>
+                     </div>
+                 </div>
+             </div>
+          </div>
+       </div>
+       
+    </section>
+ </main>
+

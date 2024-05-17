@@ -1,0 +1,78 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>List-Universite</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item">Universite</li>
+        <li class="breadcrumb-item active">List-Universite</li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="display: inline-block; width: 90%">
+              List des Universites
+            </h5>
+            <button
+              [routerLink]="['/AjouterDepartement']"
+              routerLinkActive="router-link-active"
+              class="btn btn-primary"
+            >
+              Ajouter
+            </button>
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th scope="row">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Outils</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr
+                *ngFor="
+                    let item of listDepartment  | filter : departementService.searchText
+                      | paginate: { itemsPerPage: 5, currentPage: p };                    
+                    let i = index
+                  "
+              >
+                <td *ngIf="p === 1" style="font-weight: bold">{{ i + 1 }}</td>
+                <td *ngIf="p !== 1" style="font-weight: bold">
+                  {{ p * 5 - 4 }}
+                </td>
+                <td>{{ item.nomDepar }}</td>
+                <td>
+                  <a
+                    [routerLink]="['/ModifierDepartment', item.idDepar]"
+                    routerLinkActive="router-link-active"
+                    class="bi bi-pencil-square"
+                    style="
+                        font-size: 25px;
+                        color: #f0ad4e;
+                        cursor: pointer;
+                        margin-right: 1rem;
+                      "
+                  ></a>
+                  <a
+                    (click)="supprimerDepartement(item)"
+                    class="bi bi-trash"
+                    style="font-size: 25px; color: #d9534f; cursor: pointer"
+                  ></a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <pagination-controls
+              style="display: inline-block; margin: 0 30%; width: 500px"
+              (pageChange)="p = $event"
+            ></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

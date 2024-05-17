@@ -1,0 +1,62 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <h1>Modifier Club</h1>
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Club</li>
+             <li class="breadcrumb-item active">Modifier Club</li>
+          </ol>
+       </nav>
+    </div>
+  
+       
+             <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title">Modifier Club</h5>
+
+
+                   <form (ngSubmit)="onSubmit()">
+                    <div class="row mb-3">
+                       <label for="inputText" class="col-sm-2 col-form-label">Nom Club</label>
+                       <div class="col-sm-10"> <input type="text" class="form-control" [(ngModel)]="club.nomClub" name="nomClub"
+                         id="nomClub"></div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="inputText" class="col-sm-2 col-form-label">Description</label>
+                      <div class="col-sm-10"> <input type="text" class="form-control" [(ngModel)]="club.description" name="description"
+                         id="description"></div>
+                   </div>                    
+                    <div class="row mb-3">
+                       <label for="inputDate" class="col-sm-2 col-form-label">Date de Creation</label>
+                       <div class="col-sm-10"> <input type="date" class="form-control" [(ngModel)]="club.date_creation" name="date_creation"
+                         id="date_creation"></div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="inputText" class="col-sm-2 col-form-label">Contacts</label>
+                      <div class="col-sm-10"> <input type="text" class="form-control" [(ngModel)]="club.contacts" name="contacts"
+                         id="contacts"></div>
+                   </div>
+                   <div class="row mb-3">
+                      <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                      <div class="col-sm-10"> <input type="email" class="form-control" [(ngModel)]="club.email" name="email"
+                         id="email"></div>
+                   </div>
+                    
+                   
+                         
+                    <div class="d-flex">
+                      
+                        
+                        <button class="btn btn-success" type="submit">update</button>
+                      </div>
+                   </form>
+
+
+                </div>
+             </div>
+             
+             
+ </main>
+ 
+ 

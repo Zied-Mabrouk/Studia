@@ -1,0 +1,17 @@
+.alert {
+  margin-top: 1rem;
+  margin-inline: calc(var(--bs-gutter-x) * 0.5) !important;
+  width: calc(100% - (var(--bs-gutter-x)));
+}
+
+.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+.ng-invalid.ng-touched:focus {
+  box-shadow: 0 0 0 2px rgba(red, 0, 0, 0.1);
+}
+
+.ng-valid.ng-touched:not(form) {
+  border: 2px solid rgb(0, 255, 13);
+}

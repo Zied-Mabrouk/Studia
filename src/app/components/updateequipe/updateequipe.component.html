@@ -1,0 +1,61 @@
+<main id="main" class="main">
+    <section class="section">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title" style="display: inline-block; width: 90%">
+                  update Equipe
+                </h5>
+
+
+                <form (ngSubmit)="onSubmit()">
+                    
+                       <label for="name" class="badge bg-info text-dark">Nom Equipe :</label>
+                       <br>
+                       <input id="name" type="text" name="name" [ngModelOptions]="{standalone: true}" [(ngModel)]="equipe.nomEquipe" class="form-control" id="name" aria-describedby="emailHelp" >
+                    
+                      
+                        <label for="name">Niveau</label>
+                        <br>
+                        <select class="custom-select mb-3" id="select" class="form-control">
+                        
+                          
+                           <option [ngModelOptions]="{standalone: true}"  [(ngModel)]="equipe.niveau">{{equipe.niveau}}</option>
+                           <option *ngFor="let N of Niveau" >
+                            {{ N }}
+                          </option>
+                        </select><br>
+
+
+                        <span class="badge bg-info text-dark">Detail Equipe :</span><br>
+                        
+
+                         
+                         
+
+                        <label for="name">Salle</label><br>
+                        <input type="text" [ngModelOptions]="{standalone: true}" class="form-control" value="{{equipe.detailEquipe.salle}}" [(ngModel)]="equipe.detailEquipe.salle">
+                       
+                       <br>
+                       
+                       
+                        <label for="name">Thematique</label><br>
+                        <input type="text" [ngModelOptions]="{standalone: true}" class="form-control" value="{{equipe.detailEquipe.thematique}}" [(ngModel)]="equipe.detailEquipe.thematique">
+                       
+                     
+                    
+                     <div class="modal-footer">
+                       <button type="button" id="" href="equipe" class="btn btn-secondary">Close</button>
+                       <button type="submit "  class="btn btn-primary" >Save changes</button>
+                     </div>
+                      
+                 </form>
+              </div>
+              </div>
+              </div>
+        </div>
+        
+    </section>
+
+</main>
